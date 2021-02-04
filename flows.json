@@ -1,0 +1,955 @@
+[
+    {
+        "id": "73e52fe9.48fee8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c6b4e39a.093478",
+        "type": "mqtt in",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "topic": "/home/office/temperature",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "cd12958d.beb52",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "1ad23787.e293f",
+                "c46c63ea.9ffc"
+            ]
+        ]
+    },
+    {
+        "id": "1ad23787.e293f",
+        "type": "change",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "d12dec83.4c915",
+                "f475729f.3bdc18",
+                "14900b6.b06caf5"
+            ]
+        ]
+    },
+    {
+        "id": "720a350f.fa4834",
+        "type": "debug",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "d12dec83.4c915",
+        "type": "ui_gauge",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "546dd963.d4d04",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#00c7fc",
+            "#96d35f",
+            "#fff76b"
+        ],
+        "seg1": "18",
+        "seg2": "22",
+        "x": 810,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "852ca003.022db",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "546dd963.d4d04",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "day",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "18",
+        "ymax": "25",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#0042aa",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f40333a.9625cc",
+        "type": "change",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 660,
+        "wires": [
+            [
+                "f504dda9.8895f8",
+                "fe3938df.df138",
+                "b9f31ffa.c5f9a8"
+            ]
+        ]
+    },
+    {
+        "id": "eff5fb9f.75a85",
+        "type": "mqtt in",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "topic": "/home/office/humidity",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "cd12958d.beb52",
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "3f40333a.9625cc"
+            ]
+        ]
+    },
+    {
+        "id": "f504dda9.8895f8",
+        "type": "ui_gauge",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "1af54818.e8fcc8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#fffc41",
+            "#96d35f",
+            "#00c7fc"
+        ],
+        "seg1": "39",
+        "seg2": "60",
+        "x": 800,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "b96b6bae.73b5d",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "1af54818.e8fcc8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "day",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "30",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "156df85e.84d74",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "546dd963.d4d04",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "week",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "18",
+        "ymax": "25",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#0042aa",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f475729f.3bdc18",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "60",
+        "round": "",
+        "mult": "single",
+        "reduce": true,
+        "x": 640,
+        "y": 520,
+        "wires": [
+            [
+                "156df85e.84d74"
+            ]
+        ]
+    },
+    {
+        "id": "fe3938df.df138",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "60",
+        "round": "",
+        "mult": "single",
+        "reduce": true,
+        "x": 640,
+        "y": 800,
+        "wires": [
+            [
+                "5d36ea1a.612a8c"
+            ]
+        ]
+    },
+    {
+        "id": "5d36ea1a.612a8c",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "1af54818.e8fcc8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "week",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "30",
+        "ymax": "50",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa0ae6fd.8ffb7",
+        "type": "ui_switch",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "317d2d03.f8332a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 90,
+        "y": 1540,
+        "wires": [
+            [
+                "86c6a477.4acff8"
+            ]
+        ]
+    },
+    {
+        "id": "86c6a477.4acff8",
+        "type": "mqtt out",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "topic": "/home/office/output",
+        "qos": "",
+        "retain": "",
+        "broker": "cd12958d.beb52",
+        "x": 300,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "14900b6.b06caf5",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 640,
+        "y": 460,
+        "wires": [
+            [
+                "852ca003.022db"
+            ]
+        ]
+    },
+    {
+        "id": "b9f31ffa.c5f9a8",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 640,
+        "y": 740,
+        "wires": [
+            [
+                "b96b6bae.73b5d"
+            ]
+        ]
+    },
+    {
+        "id": "c46c63ea.9ffc",
+        "type": "function",
+        "z": "73e52fe9.48fee8",
+        "name": "Timestamp",
+        "func": "msg.payload = {time: new Date(), temperature: msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 230,
+        "y": 500,
+        "wires": [
+            [
+                "720a350f.fa4834"
+            ]
+        ]
+    },
+    {
+        "id": "26e85723.d22d9",
+        "type": "mqtt in",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "topic": "/home/office/co2",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "cd12958d.beb52",
+        "x": 100,
+        "y": 940,
+        "wires": [
+            [
+                "8c8df253.314678"
+            ]
+        ]
+    },
+    {
+        "id": "8c8df253.314678",
+        "type": "change",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 940,
+        "wires": [
+            [
+                "51737351.589f8c",
+                "cd83c4c9.7bd32",
+                "1fb1663a.6b8c6a"
+            ]
+        ]
+    },
+    {
+        "id": "51737351.589f8c",
+        "type": "ui_gauge",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "af43914f.5350b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO2",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": "400",
+        "max": "2000",
+        "colors": [
+            "#96d35f",
+            "#fffc41",
+            "#ff4013"
+        ],
+        "seg1": "1000",
+        "seg2": "1400",
+        "x": 790,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "cd83c4c9.7bd32",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "60",
+        "round": "",
+        "mult": "single",
+        "reduce": true,
+        "x": 640,
+        "y": 1080,
+        "wires": [
+            [
+                "ad53e837.454f6"
+            ]
+        ]
+    },
+    {
+        "id": "1fb1663a.6b8c6a",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 640,
+        "y": 1020,
+        "wires": [
+            [
+                "6d3586ab.01a2c"
+            ]
+        ]
+    },
+    {
+        "id": "ad53e837.454f6",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "af43914f.5350b8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "week",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "400",
+        "ymax": "1500",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d3586ab.01a2c",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "af43914f.5350b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "day",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "400",
+        "ymax": "1500",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "636dfa1d.00b8e4",
+        "type": "mqtt in",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "topic": "/home/office/tvoc",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "cd12958d.beb52",
+        "x": 110,
+        "y": 1220,
+        "wires": [
+            [
+                "1b351e8f.aa03a9"
+            ]
+        ]
+    },
+    {
+        "id": "1b351e8f.aa03a9",
+        "type": "change",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 1220,
+        "wires": [
+            [
+                "6d123f24.b1e9f",
+                "6a3e864e.cf729",
+                "71f1a366.5889bc"
+            ]
+        ]
+    },
+    {
+        "id": "6d123f24.b1e9f",
+        "type": "ui_gauge",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "ae6b0be6.b83628",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "tVOC",
+        "label": "ppb",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1187",
+        "colors": [
+            "#96d35f",
+            "#fffc41",
+            "#ff4013"
+        ],
+        "seg1": "200",
+        "seg2": "1000",
+        "x": 790,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "6a3e864e.cf729",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "60",
+        "round": "",
+        "mult": "single",
+        "reduce": true,
+        "x": 640,
+        "y": 1360,
+        "wires": [
+            [
+                "bfada2ab.94a478"
+            ]
+        ]
+    },
+    {
+        "id": "71f1a366.5889bc",
+        "type": "smooth",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 640,
+        "y": 1300,
+        "wires": [
+            [
+                "bd943ce2.db796"
+            ]
+        ]
+    },
+    {
+        "id": "bfada2ab.94a478",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "ae6b0be6.b83628",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "week",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bd943ce2.db796",
+        "type": "ui_chart",
+        "z": "73e52fe9.48fee8",
+        "name": "",
+        "group": "ae6b0be6.b83628",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "day",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#008cb4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 790,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd12958d.beb52",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": ""
+    },
+    {
+        "id": "546dd963.d4d04",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "69edb93c.c3c818",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1af54818.e8fcc8",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "69edb93c.c3c818",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "317d2d03.f8332a",
+        "type": "ui_group",
+        "name": "Testing",
+        "tab": "69edb93c.c3c818",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "af43914f.5350b8",
+        "type": "ui_group",
+        "name": "CO2",
+        "tab": "69edb93c.c3c818",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ae6b0be6.b83628",
+        "type": "ui_group",
+        "name": "tVOC",
+        "tab": "69edb93c.c3c818",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "69edb93c.c3c818",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
